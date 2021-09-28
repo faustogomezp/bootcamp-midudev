@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import Description from './Description.js'
+import Contador from './Contador.js'
+import Boton from './Boton.js'
 
 /** const App = () => {
  * 
@@ -22,7 +24,8 @@ function App() {
       <Message />
       <Description color='red' text='Estamos aprendiendo'/>
       <Description color='Yellow' text='en un bootcamp'/>
-      <Description color='green' text='como ser fullStack de JS'/>
+      <Contador />
+      <Boton />
     </div>
   );
 }
