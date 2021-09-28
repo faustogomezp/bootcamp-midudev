@@ -3,6 +3,7 @@ import './App.css';
 import Description from './Description.js'
 import Contador from './Contador.js'
 import Boton from './Boton.js'
+import ObjectStatus from './ObjectStatus.js'
 
 /** const App = () => {
  * 
@@ -25,7 +26,8 @@ function App() {
       <Description color='red' text='Estamos aprendiendo'/>
       <Description color='Yellow' text='en un bootcamp'/>
       <Contador />
-      <Boton />
+      <Boton funct='console.log("Fausto nuevo")'/>
+	<ObjectStatus />
     </div>
   );
 }

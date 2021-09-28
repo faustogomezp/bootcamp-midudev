@@ -1,6 +1,6 @@
 
 
-const Boton = () =>  {
+const Boton = (props) =>  {
     return (
         <button onClick={() => {
             console.log("Fausto nuevo");

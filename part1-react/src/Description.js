@@ -1,7 +1,7 @@
-const Description = (props) =>{
+const Description = ({color, text}) =>{
     return (
-    <p style={{color: props.color}}>
-        {props.text}
+    <p style={{color: color}}>
+        {text}
         </p>
     )}
 
