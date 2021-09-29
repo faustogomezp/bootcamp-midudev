@@ -1,33 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
-import Description from './Description.js'
-import Contador from './Contador.js'
-import Boton from './Boton.js'
-import ObjectStatus from './ObjectStatus.js'
-
-/** const App = () => {
- * 
- * } */
-
-  //Los componentes se deben crear como componente independientes.
-const Message = () =>{
-  return <h1>Esto es otro componente</h1>
-}
+import { Note } from './Note.js';
+/* import Note from '.Note.js'; Se puede usar de la misma manera con export default*/
 
 
 
-function App() {
+function App(props) {
   const mensaje = 'Hola mundo desde variable'
   
   return (
     <div className="App">
-      {mensaje + ' Esto es JSX'}
-      <Message />
-      <Description color='red' text='Estamos aprendiendo'/>
-      <Description color='Yellow' text='en un bootcamp'/>
-      <Contador />
-      <Boton funct='console.log("Fausto nuevo")'/>
-	<ObjectStatus />
+      <Note key={props.note.id} {...props.note} />
     </div>
   );
 }
