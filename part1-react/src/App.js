@@ -1,14 +1,23 @@
 import "./App.css";
-import {useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Note } from "./Note.js";
 /* import Note from '.Note.js'; Se puede usar de la misma manera con export default*/
 
-function App( props ) {
-  const [notes, setNotes] = useState(props.notes);
+function App() {
+  const [notes, setNotes] = useState([]);
   const [newNote, setNewNote] = useState('');
-  const [showAll, setShowAll] = useState(true);
 
+  useEffect(() => {
+    setTimeout(() =>{
+      fetch('https://jsonplaceholder.typicode.com/posts')
+      .then((response) => response.json())
+      .then(json => {
+      setNotes(json)
+    });
+    }, 2000);
 
+  }, []);
+  
   const handleChange = (event) => {
     setNewNote(event.target.value);
   }
@@ -17,29 +26,20 @@ function App( props ) {
     event.preventDefault();
     const noteToAddToState = {
       id: notes.length + 1,
-      content: newNote,
-      date: new Date().toISOString(),
-      important: Math.random() < 0.5
+      title: newNote,
+      body: newNote
     }
     /* setNotes(notes.concat(noteToAddToState)); */
     setNotes([...notes, noteToAddToState]);
     setNewNote('');
   }
 
-  const handleShowAll = () => {
-    setShowAll(() => !showAll);
-  }
 
   return (
     <div>
       <h1>Notas</h1>
-      <button onClick={handleShowAll}>{ showAll ? 'Show only important' : 'Show all' }</button>
       <ol>
         {notes
-          .filter(note =>{
-            if (showAll === true) return true;
-            return note.important === true;
-          })
           .map((note) => (
           <Note key={note.id} {...note} />
         ))}
