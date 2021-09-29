@@ -1,19 +1,17 @@
-export const Note = (id, content, date) => {
-        if (typeof notes === 'undefined' || notes.lenght === 0) {
+export const Note = ({content, date}) => {
+  /*        if (typeof note === 'undefined' || note.lenght === 0) {
 		return "No tenemos notas que mostrar";
-	}
-
-	return (
-		<ol>
-		{notes.map((note) => {
-			return (<li key={note.id}>
-				<p>{note.content}</p>
-			        <small><time>{note.date}</time></small>
-				</li>);
-		})}
-		</ol>
-	)
-}
+	} */
+  /* const content, date =  note ; */
+  return (
+    <li>
+      <p>{content}</p>
+      <small>
+        <time>{date}</time>
+      </small>
+    </li>
+  );
+};
 
 /* export default ListNotes;
  */
