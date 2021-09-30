@@ -35,7 +35,7 @@ function App() {
 
     createNote(noteToAddToState)
     .then(newNote => {
-      setNotes(notes.concat(newNote))
+      setNotes((prevNotes) => prevNotes.concat(newNote))
     });
     /* setNotes(notes.concat(noteToAddToState)); */
     /* setNotes([...notes, noteToAddToState]); */
