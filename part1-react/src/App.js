@@ -1,21 +1,24 @@
 import "./App.css";
 import { useEffect, useState } from 'react';
 import { Note } from "./Note.js";
+import axios from 'axios'
 /* import Note from '.Note.js'; Se puede usar de la misma manera con export default*/
 
 function App() {
   const [notes, setNotes] = useState([]);
   const [newNote, setNewNote] = useState('');
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setTimeout(() =>{
-      fetch('https://jsonplaceholder.typicode.com/posts')
-      .then((response) => response.json())
-      .then(json => {
-      setNotes(json)
-    });
-    }, 2000);
-
+    setLoading(true);
+      axios
+      .get('https://jsonplaceholder.typicode.com/posts')
+      .then((response) => {
+        const { data } = response;
+        setNotes(data);
+        setLoading(false);
+      } 
+    );
   }, []);
   
   const handleChange = (event) => {
@@ -38,6 +41,7 @@ function App() {
   return (
     <div>
       <h1>Notas</h1>
+      <p>{loading ? 'Cargando...' : '' }</p>
       <ol>
         {notes
           .map((note) => (
