@@ -1,29 +1,23 @@
-const csv = require('csvtojson')
-var fs = require('fs');
-
-try {
-    var data = fs.readFileSync('./Logger_0_2020-02-13_10-18-30_000000.csv', 'utf8');
-   var newData = data.replace('This is the header text', '').trim()
-    console.log(newData);    
-} catch(e) {
-    console.log('Error:', e.stack);
-}
-
-/* const converter = csv()
-    .fromString(newData)
-     .fromFile('./Logger_0_2020-02-13_10-18-30_000000.csv') 
-    .then((json) => {
-        console.log(json)
-    }) */
-
-    csv({
-        delimiter: '\t'
-    })
-    .fromString(newData)
-    .then((csvRow)=>{ 
-        jsonFile = csvRow // => [["1","2","3"], ["4","5","6"], ["7","8","9"]]
-    })
-
+const notes = [
+    {
+        'id': 1,
+        "content": "Me tengo que subscribir a midudev en Youtube",
+        "date": "2019-03-30T17:30:33.098z",
+        "important": true
+    },
+    {
+        'id': 2,
+        "content": "Tengo que estudiar las clases del Fullstack bootcamp",
+        "date": "2019-05-20T18:30:33.098z",
+        "important": false
+    },
+    {
+        'id': 3,
+        "content": "Repasar los retos de JS de midudev",
+        "date": "2019-03-30T19:20:33.098z",
+        "important": true
+    }
+]
 
 const http = require('http')
 
