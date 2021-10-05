@@ -1,12 +1,12 @@
-export const Note = ({ title, body }) => {
+export const Note = ({ content, important, date }) => {
   /*        if (typeof note === 'undefined' || note.lenght === 0) {
 		return "No tenemos notas que mostrar";
 	} */
   /* const content, date =  note ; */
   return (
     <li>
-      <p>{title}</p>
-      <small>{body}</small>
+      <p>{content}</p>
+      <small>{date}</small>
     </li>
   );
 };

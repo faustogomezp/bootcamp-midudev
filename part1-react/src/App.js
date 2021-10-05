@@ -1,7 +1,6 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import { Note } from "./Note.js";
-import axios from "axios";
 import { getAllNotes } from './services/notes/getAllNotes.js';
 import {createNote} from './services/notes/createNote.js';
 /* import Note from '.Note.js'; Se puede usar de la misma manera con export default*/
@@ -28,9 +27,7 @@ function App() {
     event.preventDefault();
 
     const noteToAddToState = {
-      title: newNote,
-      body: newNote,
-      userId: 1
+      content: newNote,
     };
 
     createNote(noteToAddToState)
