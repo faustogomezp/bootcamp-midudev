@@ -97,7 +97,7 @@ app.use((request, response) => {
   })
 })
 
-const PORT = 3001
+const PORT = process.env.PORT || 3001 //Se debe usar la variable PORT para deployar en heroku.
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
